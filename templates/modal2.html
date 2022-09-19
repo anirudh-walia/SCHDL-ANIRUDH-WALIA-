@@ -1,0 +1,630 @@
+{% extends 'home.html' %}
+{% block modal2 %}
+    <!-- Large modal -->
+    <div id="largeModal1" class="modal fade" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <I><h5 class="modal-title">SCHEDULE YOUR APPOINTMENT WITH {{namee}}</h5></I>
+                    <button type="button" class="btn-close" onclick="history.back()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container px-4 text-center">
+                        <form method="POST"  action="/savemeeting/{{pub}}">
+                      <div class="row gx-8">
+                        <div class="col">
+                         <div class="p-3 border bg-light">
+                             <div class="row gx-4">
+                                  <div class="mb-3 row">
+                                    <label for="GUEST" class="col-sm-2 col-form-label">GUEST</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" readonly class="form-control-plaintext" id="GUEST" name="name" value={{namee}}>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3 row">
+                                    <label for="GUEST-id" class="col-sm-2 col-form-label">GUEST ID</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" readonly class="form-control-plaintext" id="GUEST-id" name="emp_id" value={{emp_id}}>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3 row">
+                                    <label for="TITLE" class="col-sm-2 col-form-label">TITLE</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="title" name="title">
+                                    </div>
+                                  </div>
+                                  <div class="mb-3 row">
+                                    <label for="AGENDA" class="col-sm-2 col-form-label">AGENDA</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" id="AGENDA" name="agenda" rows="3" PLACEHOLDER="Limit 250 words"></textarea>
+                                    </div>
+                                  </div>
+                                  <div class="mb-3 row">
+                                    <label for="link" class="col-sm-2 col-form-label">LINK</label>
+                                    <div class="col-sm-10">
+                                      <input type="url" class="form-control" id="link" name="link">
+                                    </div>
+                                  </div>
+                             <div class="card" style="width: 14rem;MARGIN:6PX">
+                                  <div class="card-header">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="date" value={{idd}} id="flexRadioDefault">
+                                      <label class="form-check-label" for="flexRadioDefault2">
+                                        {{day[5]}}
+                                      </label>
+                                    </div>
+                                  </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">{{date[5]}}</li>
+                                    <li class="list-group-item"><div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown link
+                                      </a>
+
+                                      <ul class="dropdown-menu">
+
+                                    <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="8" name="time" id="flexCheckDisabled" {% if a8[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                        8 A.M - 9 A.M
+                                      </label>
+                                    </div>
+                                    </li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="9" name="time" id="flexCheckDisabled2" {% if a9[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            9 A.M - 10 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="10" name="time" id="flexCheckDisabled3" {% if a10[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            10 A.M - 11 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="11" name="time" id="flexCheckDisabled4" {% if a11[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            11 A.M - 12 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="12" name="time" id="flexCheckDisabled5" {% if a12[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            12 P.M - 1 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="13" name="time" id="flexCheckDisabled6" {% if a13[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            1 P.M - 2 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="14" name="time" id="flexCheckDisabled7" {% if a14[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            2 P.M - 3 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="15" name="time" id="flexCheckDisabled8" {% if a15[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            3 P.M - 4 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="16" name="time" id="flexCheckDisabled9" {% if a16[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            4 P.M - 5 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="17" name="time" id="flexCheckDisabled10" {% if a17[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           5 P.M - 6 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="18" name="time" id="flexCheckDisabled11" {% if a18[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            6 P.M - 7 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="19" name="time" id="flexCheckDisabled12" {% if a19[5] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           7 P.M - 8 P.M
+                                          </label>
+                                        </div></li>
+                                      </ul>
+                                    </div></li>
+                                  </ul>
+                                </div>
+                            <div class="card" style="width: 14rem;MARGIN:6PX">
+                                  <div class="card-header">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="date" value={{idd}} id="flexRadioDefault">
+                                      <label class="form-check-label" for="flexRadioDefault2">
+                                        {{day[4]}}
+                                      </label>
+                                    </div>
+                                  </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">{{date[4]}}</li>
+                                    <li class="list-group-item"><div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown link
+                                      </a>
+
+                                      <ul class="dropdown-menu">
+
+                                    <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="8" name="time" id="flexCheckDisabled" {% if a8[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                        8 A.M - 9 A.M
+                                      </label>
+                                    </div>
+                                    </li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="9" name="time" id="flexCheckDisabled2" {% if a9[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            9 A.M - 10 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="10" name="time" id="flexCheckDisabled3" {% if a10[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            10 A.M - 11 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="11" name="time" id="flexCheckDisabled4" {% if a11[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            11 A.M - 12 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="12" name="time" id="flexCheckDisabled5" {% if a12[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            12 P.M - 1 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="13" name="time" id="flexCheckDisabled6" {% if a13[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            1 P.M - 2 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="14" name="time" id="flexCheckDisabled7" {% if a14[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            2 P.M - 3 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="15" name="time" id="flexCheckDisabled8" {% if a15[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            3 P.M - 4 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="16" name="time" id="flexCheckDisabled9" {% if a16[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            4 P.M - 5 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="17" name="time" id="flexCheckDisabled10" {% if a17[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           5 P.M - 6 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="18" name="time" id="flexCheckDisabled11" {% if a18[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            6 P.M - 7 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="19" name="time" id="flexCheckDisabled12" {% if a19[4] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           7 P.M - 8 P.M
+                                          </label>
+                                        </div></li>
+                                      </ul>
+                                    </div></li>
+                                  </ul>
+                                </div>
+                           <div class="card" style="width: 14rem;MARGIN:6PX">
+                                  <div class="card-header">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="date" value={{idd}} id="flexRadioDefault">
+                                      <label class="form-check-label" for="flexRadioDefault2">
+                                        {{day[3]}}
+                                      </label>
+                                    </div>
+                                  </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">{{date[3]}}</li>
+                                    <li class="list-group-item"><div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown link
+                                      </a>
+
+                                      <ul class="dropdown-menu">
+
+                                    <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="8" name="time" id="flexCheckDisabled" {% if a8[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                        8 A.M - 9 A.M
+                                      </label>
+                                    </div>
+                                    </li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="9" name="time" id="flexCheckDisabled2" {% if a9[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            9 A.M - 10 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="10" name="time" id="flexCheckDisabled3" {% if a10[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            10 A.M - 11 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="11" name="time" id="flexCheckDisabled4" {% if a11[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            11 A.M - 12 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="12" name="time" id="flexCheckDisabled5" {% if a12[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            12 P.M - 1 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="13" name="time" id="flexCheckDisabled6" {% if a13[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            1 P.M - 2 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="14" name="time" id="flexCheckDisabled7" {% if a14[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            2 P.M - 3 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="15" name="time" id="flexCheckDisabled8" {% if a15[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            3 P.M - 4 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="16" name="time" id="flexCheckDisabled9" {% if a16[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            4 P.M - 5 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="17" name="time" id="flexCheckDisabled10" {% if a17[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           5 P.M - 6 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="18" name="time" id="flexCheckDisabled11" {% if a18[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            6 P.M - 7 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="19" name="time" id="flexCheckDisabled12" {% if a19[3] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           7 P.M - 8 P.M
+                                          </label>
+                                        </div></li>
+                                      </ul>
+                                    </div></li>
+                                  </ul>
+                                </div>
+                                <div class="card" style="width: 14rem;MARGIN:6PX">
+                                  <div class="card-header">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="date" value={{idd}} id="flexRadioDefault">
+                                      <label class="form-check-label" for="flexRadioDefault2">
+                                        {{day[2]}}
+                                      </label>
+                                    </div>
+                                  </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">{{date[2]}}</li>
+                                    <li class="list-group-item"><div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown link
+                                      </a>
+
+                                      <ul class="dropdown-menu">
+
+                                    <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="8" name="time" id="flexCheckDisabled" {% if a8[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                        8 A.M - 9 A.M
+                                      </label>
+                                    </div>
+                                    </li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="9" name="time" id="flexCheckDisabled2" {% if a9[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            9 A.M - 10 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="10" name="time" id="flexCheckDisabled3" {% if a10[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            10 A.M - 11 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="11" name="time" id="flexCheckDisabled4" {% if a11[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            11 A.M - 12 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="12" name="time" id="flexCheckDisabled5" {% if a12[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            12 P.M - 1 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="13" name="time" id="flexCheckDisabled6" {% if a13[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            1 P.M - 2 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="14" name="time" id="flexCheckDisabled7" {% if a14[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            2 P.M - 3 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="15" name="time" id="flexCheckDisabled8" {% if a15[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            3 P.M - 4 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="16" name="time" id="flexCheckDisabled9" {% if a16[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            4 P.M - 5 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="17" name="time" id="flexCheckDisabled10" {% if a17[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           5 P.M - 6 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="18" name="time" id="flexCheckDisabled11" {% if a18[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            6 P.M - 7 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="19" name="time" id="flexCheckDisabled12" {% if a19[2] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           7 P.M - 8 P.M
+                                          </label>
+                                        </div></li>
+                                      </ul>
+                                    </div></li>
+                                  </ul>
+                                </div>
+                                 <div class="card" style="width: 14rem;MARGIN:6PX">
+                                  <div class="card-header">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="date" value={{idd}} id="flexRadioDefault">
+                                      <label class="form-check-label" for="flexRadioDefault2">
+                                        {{day[1]}}
+                                      </label>
+                                    </div>
+                                  </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">{{date[1]}}</li>
+                                    <li class="list-group-item"><div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown link
+                                      </a>
+
+                                      <ul class="dropdown-menu">
+
+                                    <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="8" name="time" id="flexCheckDisabled" {% if a8[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                        8 A.M - 9 A.M
+                                      </label>
+                                    </div>
+                                    </li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="9" name="time" id="flexCheckDisabled2" {% if a9[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            9 A.M - 10 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="10" name="time" id="flexCheckDisabled3" {% if a10[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            10 A.M - 11 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="11" name="time" id="flexCheckDisabled4" {% if a11[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            11 A.M - 12 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="12" name="time" id="flexCheckDisabled5" {% if a12[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            12 P.M - 1 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="13" name="time" id="flexCheckDisabled6" {% if a13[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            1 P.M - 2 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="14" name="time" id="flexCheckDisabled7" {% if a14[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            2 P.M - 3 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="15" name="time" id="flexCheckDisabled8" {% if a15[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            3 P.M - 4 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="16" name="time" id="flexCheckDisabled9" {% if a16[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            4 P.M - 5 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="17" name="time" id="flexCheckDisabled10" {% if a17[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           5 P.M - 6 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="18" name="time" id="flexCheckDisabled11" {% if a18[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            6 P.M - 7 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="19" name="time" id="flexCheckDisabled12" {% if a19[1] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           7 P.M - 8 P.M
+                                          </label>
+                                        </div></li>
+                                      </ul>
+                                    </div></li>
+                                  </ul>
+                                </div>
+                                <div class="card" style="width: 14rem;MARGIN:6PX">
+                                  <div class="card-header">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="date" value={{idd}} id="flexRadioDefault">
+                                      <label class="form-check-label" for="flexRadioDefault2">
+                                        {{day[0]}}
+                                      </label>
+                                    </div>
+                                  </div>
+                                     <ul class="list-group list-group-flush">
+                                         <li class="list-group-item">{{date[0]}}</li>
+                                    <li class="list-group-item"><div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown link
+                                      </a>
+
+                                      <ul class="dropdown-menu">
+
+                                    <li class="list-group-item">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="8" name="time" id="flexCheckDisabled" {% if a8[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                        8 A.M - 9 A.M
+                                      </label>
+                                    </div>
+                                    </li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="9" name="time" id="flexCheckDisabled2" {% if a9[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            9 A.M - 10 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="10" name="time" id="flexCheckDisabled3" {% if a10[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            10 A.M - 11 A.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="11" name="time" id="flexCheckDisabled4" {% if a11[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            11 A.M - 12 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="12" name="time" id="flexCheckDisabled5" {% if a12[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            12 P.M - 1 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="13" name="time" id="flexCheckDisabled6" {% if a13[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            1 P.M - 2 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="14" name="time" id="flexCheckDisabled7" {% if a14[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            2 P.M - 3 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="15" name="time" id="flexCheckDisabled8" {% if a15[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            3 P.M - 4 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="16" name="time" id="flexCheckDisabled9" {% if a16[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            4 P.M - 5 P.M
+                                          </label>
+                                        </div></li>
+                                                                          <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="17" name="time" id="flexCheckDisabled10" {% if a17[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           5 P.M - 6 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="18" name="time" id="flexCheckDisabled11" {% if a18[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                            6 P.M - 7 P.M
+                                          </label>
+                                        </div></li>                                    <li class="list-group-item"> <div class="form-check">
+                                      <input class="form-check-input" type="radio" value="19" name="time" id="flexCheckDisabled12" {% if a19[0] %}{% else %}disabled{% endif %}>
+                                      <label class="form-check-label" for="flexCheckDisabled">
+                                           7 P.M - 8 P.M
+                                          </label>
+                                        </div></li>
+                                      </ul>
+                                    </div></li>
+                                  </ul>
+                                </div>
+                                 </div>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="history.back()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">OK</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function(){
+        console.log("window is loaded");
+        $('#largeModal1').modal('show');
+    })
+</script>
+{% endblock %}

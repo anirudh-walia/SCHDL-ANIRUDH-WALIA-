@@ -1,0 +1,149 @@
+{% extends 'home.html' %}
+{% block modal %}
+
+<div class="modal fade" id="exampleModal5" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Schedule For Today</h5>
+      </div>
+      <div class="modal-body">
+  <div class="row gy-4">
+    <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">8:00 A.M TO 9:00 AM</span></i>
+        <span style="color:transparent">---</span>
+        {% if 'checked' in r[0] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+    <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:25px">9:00 A.M TO 10:00 AM</span></i>
+                <span style="color:transparent">---</span>
+        {% if 'checked' in r[1] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:24px">10:00 A.M TO 11:00 AM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[2] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:18px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:24px">11:00 A.M TO 12:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[3] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:18px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:25px">12:00 P.M TO 1:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[4] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">1:00 P.M TO 2:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[5] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">2:00 P.M TO 3:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[6] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">3:00 P.M TO 4:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[7] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">4:00 P.M TO 5:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[8] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">5:00 P.M TO 6:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[9] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+          <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">6:00 P.M TO 7:00 PM</span></i>
+                      <span style="color:transparent">---</span>
+        {% if 'checked' in r[10] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+                <div class="col-14">
+        <i><span class="badge rounded-pill text-bg-success" style="font-size:26px">7:00 P.M TO 8:00 PM</span></i>
+                            <span style="color:transparent">---</span>
+        {% if 'checked' in r[11] %}
+        <span style="color:green;font-size:20px">AVAILABLE</span>
+        {% else %}
+        <span style="color:red;font-size:20px">NOT AVAILABLE</span>
+        {% endif %}
+    </div>
+
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="history.back()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function(){
+        console.log("window is loaded");
+        $('#exampleModal5').modal('show');
+    })
+</script>
+{% endblock %}
