@@ -8,20 +8,20 @@ from flask_jwt_extended import set_access_cookies
 from datetime import datetime, timedelta
 from io import BytesIO
 import validators
-
+# SUBMISSION BY ANIRUDH WALIA 19BCS6127 FOR NBYULA 
+# PROJECT NAME - SCHDL
+# I HAVE USED FLASK-SQL-ALCHEMY TO HANDLE MY DATABASE 
+# AND JWT FOR AUTHORIZATION
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'ajsuwUHUHSkjskw'
-app.config[
-    'SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/aniru/PycharmProjects/appointment_scheduler/main_database.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/aniru/PycharmProjects/appointment_scheduler/main_database.sqlite3'
 
 db = SQLAlchemy(app)
 
 
 # the database model
-
-# user table comprising both students and tutors
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     public_id = db.Column(db.String(150), unique=True)
@@ -72,6 +72,7 @@ class Schedule(db.Model):
     slot_19to20 = db.Column(db.Boolean)
 
 
+# the decorator token_required to handle jwt tokens authentication
 def token_required(f):
     @wraps(f)
     def token_decorated(*args, **kwargs):
@@ -108,6 +109,7 @@ def index():
     return render_template('index.html')
 
 
+# sign up routes also generates a jwt
 @app.route('/signuserup', methods=['POST'])
 def signup():
     fullname = request.form.get('fullname')
@@ -137,6 +139,29 @@ def signup():
         return redirect('/')
 
 
+# sign in route also generates a jwt
+@app.route('/signinuser', methods=['POST'])
+def signin():
+    username = request.form.get('username')
+    password = request.form.get('pass')
+
+    user = User.query.filter_by(username=username).first()
+
+    if not user:
+        return render_template('index.html')
+
+    if check_password_hash(user.password, password):
+        token = jwt.encode(
+            {'public_id': user.public_id, 'user': username, 'exp': datetime.utcnow() + timedelta(minutes=300)},
+            app.config['SECRET_KEY'])
+        session['username'] = user.username
+        session['token'] = token
+
+        return jsonify({'token': token}) and redirect('/home')
+    return render_template('index.html')
+
+
+# renders the home page
 @app.route('/home', methods=['GET'])
 @token_required
 def home(current_user):
@@ -199,6 +224,7 @@ def home(current_user):
     return render_template('home.html', list=listt, fname=fname, sname=sname, val=val, dic=dic, r=ch, dj=meets)
 
 
+# renders the modal that shows the schedule of other users
 @app.route('/home/showsched/<public_id>', methods=['GET', 'POST'])
 @token_required
 def showsched(current_user, public_id):
@@ -233,6 +259,7 @@ def showsched(current_user, public_id):
                            show_schedule_modal=True)
 
 
+# renders the modal used for scheduling a meeting
 @app.route('/home/makeappointment/<public_id>', methods=['GET', 'POST'])
 @token_required
 def makesched(current_user, public_id):
@@ -355,6 +382,7 @@ def makesched(current_user, public_id):
                            emp_id=schdl.employee_id)
 
 
+# saves the meeting info in the db
 @app.route('/savemeeting/<public_id>', methods=['POST'])
 @token_required
 def savemeeting(current_user, public_id):
@@ -416,33 +444,14 @@ def savemeeting(current_user, public_id):
     return redirect('/home/meetingdone')
 
 
+# when a meeting is scheduled it redirects the confirmed message
 @app.route('/home/meetingdone')
 @token_required
 def meetingdone(current_user):
     return render_template('suc.html'), {"Refresh": "2; url=/home"}
 
 
-@app.route('/signinuser', methods=['POST'])
-def signin():
-    username = request.form.get('username')
-    password = request.form.get('pass')
-
-    user = User.query.filter_by(username=username).first()
-
-    if not user:
-        return render_template('index.html')
-
-    if check_password_hash(user.password, password):
-        token = jwt.encode(
-            {'public_id': user.public_id, 'user': username, 'exp': datetime.utcnow() + timedelta(minutes=300)},
-            app.config['SECRET_KEY'])
-        session['username'] = user.username
-        session['token'] = token
-
-        return jsonify({'token': token}) and redirect('/home')
-    return render_template('index.html')
-
-
+# route handling changes in a users profile
 @app.route('/updateuserprofile', methods=['POST', 'PUT'])
 @token_required
 def updateuser(current_user):
@@ -465,6 +474,7 @@ def updateuser(current_user):
     return redirect('/home')
 
 
+# redirected if password was wrong while changing
 @app.route('/home/passnotsame', methods=['GET'])
 @token_required
 def homepassnotsame(current_user):
@@ -485,6 +495,7 @@ def homepassnotsame(current_user):
     return render_template('home.html', list=listt, fname=fname, sname=sname, msg="NEW PASSWORDS DON'T MATCH")
 
 
+# redirected if password was wrong while changing
 @app.route('/home/oldpasswrong', methods=['GET'])
 @token_required
 def homeoldpasswrong(current_user):
@@ -505,6 +516,7 @@ def homeoldpasswrong(current_user):
     return render_template('home.html', list=listt, fname=fname, sname=sname, msg="OLD PASSWORD IS WRONG")
 
 
+# route to handle changing passwords
 @app.route('/changepassword', methods=['POST', 'PUT'])
 @token_required
 def changepass(current_user):
@@ -527,6 +539,7 @@ def changepass(current_user):
         return redirect('home/oldpasswrong')
 
 
+# this route updates your time schedule
 @app.route('/updateschedule', methods=['POST', 'PUT'])
 @token_required
 def update_sched(current_user):
@@ -602,6 +615,7 @@ def update_sched(current_user):
     return redirect('/home')
 
 
+# when the meeting is completed mark it as done
 @app.route('/done/<meeting_id>', methods=['GET', 'POST'])
 @token_required
 def donee(current_user, meeting_id):
@@ -611,6 +625,7 @@ def donee(current_user, meeting_id):
     return redirect('/home')
 
 
+# the logout route
 @app.route('/logout')
 @token_required
 def logout(current_user):
